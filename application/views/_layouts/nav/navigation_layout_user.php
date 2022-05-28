@@ -138,12 +138,12 @@
                                 <span class="hide-menu">Single Entry</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a href="<?php echo base_url();?>add_account_batch" class="sidebar-link waves-effect waves-dark">
+                        <!-- <li class="sidebar-item">
+                            <a href="<?php //echo base_url();?>add_account_batch" class="sidebar-link waves-effect waves-dark">
                                 <i class="m-r-10 mdi mdi-account-multiple-plus"></i>
                                 <span class="hide-menu">Batch Entry</span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
 

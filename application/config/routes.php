@@ -78,5 +78,7 @@ $route['rejected_accounts'] = 'Status/rejected_accounts';
 $route['ajax-get-sub-category/(:any)'] = 'BasicController/ajaxRequestGetSubCategory/$1';
 $route['ajax-get-template-info/(:any)'] = 'BasicController/ajaxRequestGetTemplateInfo/$1';
 $route['ajax-get-field-info/(:any)'] = 'BasicController/ajaxRequestGetFieldInfo/$1';
+$route['ajax-is-load-email/(:any)'] = 'BasicController/ajaxRequestGetLoadEmail/$1';
+$route['ajax-load-email'] = 'BasicController/ajaxRequestGetEmailDetails';
 
 $route['newuser'] = 'VerifyLogin/new_user';

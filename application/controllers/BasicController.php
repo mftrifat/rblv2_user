@@ -25,4 +25,20 @@ class BasicController extends CI_Controller {
         $data = $this->ModelCommon->get_field_info($id);
         echo json_encode($data);
     }
+
+    function ajaxRequestGetLoadEmail($id)
+    {
+        $data = $this->ModelCommon->get_load_email_info($id);
+        echo json_encode($data);
+    }
+
+    function ajaxRequestGetEmailDetails()
+    {
+        $user_id = $this->session->userdata('user_id');
+        $data = $this->ModelCommon->get_email_info();
+        foreach ($data as $row) {
+            $this->ModelCommon->lock_email_info($row->id, $user_id);
+        }
+        echo json_encode($data);
+    }
 }

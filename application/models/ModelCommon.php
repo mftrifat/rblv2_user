@@ -54,6 +54,41 @@ class ModelCommon extends CI_Model {
         return $result;
     }
 
+    function get_load_email_info($id)
+    {
+        $this->db->select('load_email');
+        $this->db->from('tbl_category');
+        $this->db->where("id", $id);
+        $this->db->limit(1);
+        $query_result = $this->db->get();
+        $result = $query_result->result();
+        return $result;
+    }
+
+    function get_email_info()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_email_accounts');
+        $this->db->order_by('date_entry', 'ASC');
+        $this->db->where("flag_locked", 0);
+        $this->db->where("flag_used", 0);
+        $this->db->where("status", 1);
+        $this->db->limit(1);
+        $query_result = $this->db->get();
+        $result = $query_result->result();
+        return $result;
+    }
+
+    function lock_email_info($id, $user)
+    {
+        $this->db->set('flag_locked', 1);
+        $this->db->set('date_locked', 'NOW()', FALSE);
+        $this->db->set('id_locked_user', $user);
+        $this->db->where('id', $id);
+        $this->db->update('tbl_email_accounts');
+        return ($this->db->affected_rows() > 0);
+    }
+
     function single_result($table, $field, $search_on, $search_value) {
         $query = $this->db->query("select $field as total from $table where $search_on='$search_value' LIMIT 1");
         $row = $query->row();

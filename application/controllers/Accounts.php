@@ -34,7 +34,7 @@ class Accounts extends CI_Controller {
                         $data = array();
 
                         foreach($this->input->post() as $key => $val) {
-                            if($key != 'category_id' && $key != 'sub_category_id' && $key != 'submit') {
+                            if($key != 'category_id' && $key != 'sub_category_id' && $key != 'submit' && $key != 'loaded_email_id') {
                                 $field_name = "a_data_".substr($key, strpos($key, "_")-1, 1);
                                 $data[$field_name] = $this->encryption->encrypt($val);
                             }
@@ -42,6 +42,9 @@ class Accounts extends CI_Controller {
                         $data['category'] = $this->input->post('category_id');
                         $data['sub_category'] = $this->input->post('sub_category_id');
                         $data['id_input_user'] = $this->session->userdata('user_id');
+                        $loaded_email_id = $this->input->post('loaded_email_id');                        
+
+                        $this->ModelAccounts->used_email_info($loaded_email_id, $data['id_input_user']);
 
                         if ($this->ModelAccounts->insert_new_account_action($data)) {
                             $sdata = array();

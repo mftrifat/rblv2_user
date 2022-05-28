@@ -60,6 +60,16 @@ Class ModelAccounts extends CI_Model {
         return ($this->db->trans_status() === FALSE) ? false : true;
     }
 
+    function used_email_info($id, $user)
+    {
+        $this->db->set('flag_used', 1);
+        $this->db->set('date_used', 'NOW()', FALSE);
+        $this->db->set('id_used_user', $user);
+        $this->db->where('id', $id);
+        $this->db->update('tbl_email_accounts');
+        return ($this->db->affected_rows());
+    }
+
     function check_reject_account($id,$user,$cat)
     {
         $this->db->select('flag_rejected');

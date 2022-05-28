@@ -9,7 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     if ($msg) {
 ?>
         <div class="alert alert-warning alert-dismissible fade show">
-            <!-- <a href="#" class="close" data-dismiss="alert" aria-label="Close">&times;</a> -->
             <strong><?php if(!empty($cls)) echo $cls; else echo "Error!!!"?></strong> <font color="red"> <?php echo $msg; ?></font>
             <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -27,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-md-2">
             <label style="padding-top: 10px;">Select Category</label>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <select class="basic-single form-select shadow-none form-control-line" id="category_id" name="category_id" required>
                 <option value="null" disabled selected>--- Select Category ---</option>
                 <?php
@@ -42,10 +41,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 ?>
             </select>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <select class="basic-single form-select shadow-none form-control-line" id="sub_category_id" name="sub_category_id" required>
                 <option value="null" disabled selected>--- Select Sub-Category ---</option>
             </select>
+        </div>
+        <div class="col-md-2" id="email_btn" hidden>
+            <a class="btn btn-success text-white" id="get_email" name="get_email">Get Email</a>
         </div>
     </div>
     <br>
