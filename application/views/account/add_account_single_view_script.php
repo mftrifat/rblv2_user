@@ -130,6 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $('input.form-control').each(function() {
                             if($(this).attr('src') !== undefined) {
                                 $(this).val(data[0][$(this).attr('src')]);
+                                $(this).attr('readonly', true);
                             }
                         });
                         $('#input_form').append('<input type="hidden" id="loaded_email_id" name="loaded_email_id" value="'+data[0]['id']+'">');

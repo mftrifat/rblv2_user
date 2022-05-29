@@ -70,16 +70,21 @@ Class ModelAccounts extends CI_Model {
         return ($this->db->affected_rows());
     }
 
-    function check_reject_account($id,$user,$cat)
+    function check_reject_account($id, $user, $cat)
     {
-        $this->db->select('flag_rejected');
+        $this->db->select('flag_rejected as res');
         $this->db->from('tbl_new_accounts');
         $this->db->where("Id", $id);
         $this->db->where("id_input_user", $user);
         $this->db->where("sub_category", $cat);
-        $query_result = $this->db->get();
-        $result = $query_result->result();
-        return $result;
+        $this->db->limit(1);
+        $query = $this->db->get();
+        $row = $query->row();
+
+        if ($query->num_rows() > 0) {
+            return $row->res;
+        }
+        return 0;
     }
 
     function edit_account($id)

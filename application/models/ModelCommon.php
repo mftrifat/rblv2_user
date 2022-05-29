@@ -179,5 +179,37 @@ class ModelCommon extends CI_Model {
         $query = $this->db->get();
         return $query->num_rows();
     }
+
+    function get_user_balance($id)
+    {
+        $this->db->select('user_balance as balance');
+        $this->db->from('tbl_user_balance');
+        $this->db->where("user_id", $id);
+        $query = $this->db->get();
+        $row = $query->row();
+        if ($query->num_rows() > 0) {
+            return $row->balance;
+        }
+    }
+
+    function get_user_balance_cond($id, $cond)
+    {
+        if($cond == "income") {
+            $total = $this->get_user_balance($id);
+        } else if ($cond == "cashout") {
+            $total = 0;
+        }
+
+        $this->db->select('user_cashout as balance');
+        $this->db->from('tbl_user_balance');
+        $this->db->where("user_id", $id);
+        $query = $this->db->get();
+        $row = $query->row();
+        if ($query->num_rows() > 0) {
+            $total += $row->balance;
+        }
+
+        return $total;
+    }
 }
 ?>

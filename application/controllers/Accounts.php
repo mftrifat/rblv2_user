@@ -160,7 +160,7 @@ class Accounts extends CI_Controller {
                 $user_id = $this->session->userdata('user_id');
                 $edit_cat = $this->input->get('cat');
 
-                if($this->ModelAccounts->check_reject_account($edit_id,$user_id,$edit_cat)){
+                if($this->ModelAccounts->check_reject_account($edit_id,$user_id,$edit_cat) == 1){
                     $data['edit_account'] = $this->ModelAccounts->edit_account($edit_id);
                 }
             } else {

@@ -169,45 +169,27 @@
                     </ul>
                 </li>
 
-                <!-- <li class="sidebar-item">
+                <!-- Payment-->
+                <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                         <i class="mdi mdi-cash-multiple"></i>
                         <span class="hide-menu">Payment</span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a href="<?php //echo base_url();?>payemnt_menu" class="sidebar-link waves-effect waves-dark">
+                            <a href="<?php echo base_url();?>payment_request" class="sidebar-link waves-effect waves-dark">
                                 <i class="m-r-10 mdi mdi-cash"></i>
-                                <span class="hide-menu">Menu</span>
+                                <span class="hide-menu">Request Payment</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="<?php //echo base_url();?>payemnt_menu" class="sidebar-link waves-effect waves-dark">
+                            <a href="<?php echo base_url();?>payment_status" class="sidebar-link waves-effect waves-dark">
                                 <i class="m-r-10 mdi mdi-cash"></i>
-                                <span class="hide-menu">Menu</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="<?php //echo base_url();?>payemnt_menu" class="sidebar-link waves-effect waves-dark">
-                                <i class="m-r-10 mdi mdi-cash"></i>
-                                <span class="hide-menu">Menu</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="<?php //echo base_url();?>payemnt_menu" class="sidebar-link waves-effect waves-dark">
-                                <i class="m-r-10 mdi mdi-cash"></i>
-                                <span class="hide-menu">Menu</span>
+                                <span class="hide-menu">Payment Status</span>
                             </a>
                         </li>
                     </ul>
                 </li>
- -->
-                <!-- <li class="sidebar-item"> 
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php //echo base_url();?>add_account_info" aria-expanded="false">
-                        <i class="mdi mdi-account-multiple"></i>
-                        <span class="hide-menu">Add New Account</span>
-                    </a>
-                </li> -->                
             </ul>
 
         </nav>

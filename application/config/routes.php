@@ -58,6 +58,7 @@ $route['Accounts/(:any)'] = 'Home';
 $route['Status/(:any)'] = 'Home';
 $route['Home/(:any)'] = 'Home';
 $route['BasicController/(:any)'] = 'Home';
+$route['Payments/(:any)'] = 'Home';
 
 $route['login'] = 'VerifyLogin';
 $route['logout'] = 'VerifyLogin/logout';
@@ -69,11 +70,15 @@ $route['userprofile'] = 'VerifyLogin/user_profile_update';
 $route['userprofilepic'] = 'VerifyLogin/user_profile_picture_update';
 
 $route['add_account_single'] = 'Accounts/add_account_single';
-$route['add_account_batch'] = 'Accounts/add_account_batch';
+// $route['add_account_batch'] = 'Accounts/add_account_batch';
 $route['edit_account'] = 'Accounts/edit_account';
 
 $route['uploaded_accounts'] = 'Status/uploaded_accounts';
 $route['rejected_accounts'] = 'Status/rejected_accounts';
+
+$route['payment_request'] = 'Payments/payment_request';
+$route['payment_status'] = 'Payments/payment_status';
+
 
 $route['ajax-get-sub-category/(:any)'] = 'BasicController/ajaxRequestGetSubCategory/$1';
 $route['ajax-get-template-info/(:any)'] = 'BasicController/ajaxRequestGetTemplateInfo/$1';
