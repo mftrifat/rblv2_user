@@ -334,7 +334,10 @@ Class VerifyLogin extends CI_Controller
             $this->template->set('page_script', 'profile/password_change_view_script');
             $this->template->set('page_style', 'profile/password_change_view_style');
 
-            if($this->session->userdata('user_access_level') == 1) {
+            if($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 if($this->input->post()) {
                     $old_pass = $this->input->post('old_pass');
                     $new_pass = $this->input->post('new_pass');
@@ -399,7 +402,10 @@ Class VerifyLogin extends CI_Controller
 
             $user_name = $this->session->userdata('user_name');
 
-            if($this->session->userdata('user_access_level') == 1) {
+            if($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 if($this->input->post()) {
                     $data_param = array(
                         'full_name'     => $this->input->post('full_name'),
@@ -460,7 +466,10 @@ Class VerifyLogin extends CI_Controller
 
             $user_name = $this->session->userdata('user_name');
 
-            if($this->session->userdata('user_access_level') == 1) {
+            if($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 if($this->input->post()) {
                     $config = array(
                         'upload_path'   => "./uploads/user_profile/",

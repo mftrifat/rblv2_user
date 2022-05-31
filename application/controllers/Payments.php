@@ -20,7 +20,10 @@ class Payments extends CI_Controller {
             $this->template->set('page_script', 'payment/payment_request_view_script');
             $this->template->set('page_style', 'payment/payment_request_view_style');
 
-            if($this->session->userdata('user_access_level') == 1) {
+            if($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 if($this->input->post('submit') == "request") {
                     $this->load->library('form_validation');
 
@@ -86,7 +89,10 @@ class Payments extends CI_Controller {
             $this->template->set('page_script', 'payment/payment_status_view_script');
             $this->template->set('page_style', 'payment/payment_status_view_style');
 
-            if($this->session->userdata('user_access_level') == 1) {
+            if($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 $data['all_payments'] = $this->ModelPayments->get_user_payment_status($this->session->userdata('user_id'));
             } else {
                 echo "Unauthorized Action!";

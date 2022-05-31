@@ -18,7 +18,10 @@ class Accounts extends CI_Controller {
             $this->template->set('page_script', 'account/add_account_single_view_script');
             $this->template->set('page_style', 'account/add_account_single_view_style');
 
-            if($this->session->userdata('user_access_level') == 1) {
+            if($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 if($this->input->post()) {
                     $this->load->library('form_validation');
 
@@ -79,7 +82,10 @@ class Accounts extends CI_Controller {
             $this->template->set('page_script', 'account/add_account_batch_view_script');
             $this->template->set('page_style', 'account/add_account_batch_view_style');
 
-            if($this->session->userdata('user_access_level') == 1) {
+            if($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 $data['category_list'] = $this->ModelCommon->get_category();
             } else {
                 echo "Unauthorized Action!";
@@ -100,7 +106,10 @@ class Accounts extends CI_Controller {
             $this->template->set('page_script', 'account/account_edit_view_script');
             $this->template->set('page_style', 'account/account_edit_view_style');
 
-            if ($this->session->userdata('user_access_level') == 1) {
+            if ($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 if($this->input->post()) {
                     $this->load->library('form_validation');
 

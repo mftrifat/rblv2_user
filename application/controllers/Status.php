@@ -20,7 +20,10 @@ class Status extends CI_Controller {
 
             $user_id = $this->session->userdata('user_id');
             
-            if ($this->session->userdata('user_access_level') == 1) {
+            if ($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 $data['category_list'] = $this->ModelCommon->get_category();
                 if(!empty($_POST)){
                     $data['all_accounts'] = $this->ModelStatus->all_accounts($_POST['sub_category_id'], $user_id);
@@ -50,7 +53,10 @@ class Status extends CI_Controller {
             $user_id = $this->session->userdata('user_id');
 
 
-            if ($this->session->userdata('user_access_level') == 1) {
+            if ($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
                 $data['category_list'] = $this->ModelCommon->get_category();
                 if(!empty($_POST)){
                     $data['rejected_accounts'] = $this->ModelStatus->rejected_accounts($_POST['sub_category_id'], $user_id);

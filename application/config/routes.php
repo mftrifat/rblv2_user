@@ -59,6 +59,7 @@ $route['Status/(:any)'] = 'Home';
 $route['Home/(:any)'] = 'Home';
 $route['BasicController/(:any)'] = 'Home';
 $route['Payments/(:any)'] = 'Home';
+$route['Users/(:any)'] = 'Home';
 
 $route['login'] = 'VerifyLogin';
 $route['logout'] = 'VerifyLogin/logout';
@@ -68,6 +69,11 @@ $route['dashboard'] = 'Home/dashboard';
 $route['changepassword'] = 'VerifyLogin/change_password';
 $route['userprofile'] = 'VerifyLogin/user_profile_update';
 $route['userprofilepic'] = 'VerifyLogin/user_profile_picture_update';
+
+$route['add_user'] = 'Users/add_user';
+$route['manage_user'] = 'Users/manage_user';
+$route['edit_user'] = 'Users/edit_user';
+$route['unlock_user'] = 'Users/unlock_user';
 
 $route['add_account_single'] = 'Accounts/add_account_single';
 // $route['add_account_batch'] = 'Accounts/add_account_batch';

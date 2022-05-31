@@ -123,8 +123,11 @@ class ModelCommon extends CI_Model {
         $this->db->update($table, $data);
     }
 
-    function get_conditional_data($table, $cond) {
-        $query = $this->db->query("select * from $table  $cond");
+    function get_conditional_data($table, $con_field, $con_value) {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where($con_field, $con_value);
+        $query = $this->db->get();
         return $query->result();
     }
 

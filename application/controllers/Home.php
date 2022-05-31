@@ -32,8 +32,11 @@ class Home extends CI_Controller {
 		$data = array();
 		if ($this->session->userdata('logged_in_user')) {
             $this->template->set('title', 'Dashboard');
-            if($this->session->userdata('user_access_level') == 1) {
+            if($this->session->userdata('user_access_level') < 100) {
             	$this->template->set('nav', '_layouts/nav/navigation_layout_user');
+            	if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
             } else {
             	redirect('logout');
             }
