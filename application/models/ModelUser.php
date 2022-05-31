@@ -75,6 +75,16 @@ Class ModelUser extends CI_Model {
 
         return ($this->db->affected_rows() > 0);
     }
+        
+    function get_user_type()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_user_type');
+        $this->db->where("access_level<100");
+        $query_result = $this->db->get();
+        $result = $query_result->result();
+        return $result;
+    }
 }
 
 ?>
