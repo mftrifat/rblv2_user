@@ -52,7 +52,7 @@ if(!empty($user_info)) {
                     <label style="padding-top: 10px;">User Full Name</label>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" id="full_name" name="full_name" class="form-control form-control-line" maxlength="120" required value="<?php echo $row->full_name; ?>">
+                    <input type="text" id="full_name" name="full_name" class="form-control form-control-line" maxlength="120" value="<?php echo $row->full_name; ?>" readonly>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -63,7 +63,7 @@ if(!empty($user_info)) {
                     <label style="padding-top: 10px;">User Email</label>
                 </div>
                 <div class="col-md-5">
-                    <input type="email" id="user_email" name="user_email" class="form-control form-control-line" maxlength="120" required value="<?php echo $row->user_email; ?>">
+                    <input type="email" id="user_email" name="user_email" class="form-control form-control-line" maxlength="120" readonly value="<?php echo $row->user_email; ?>">
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -74,7 +74,7 @@ if(!empty($user_info)) {
                     <label style="padding-top: 10px;">User Phone</label>
                 </div>
                 <div class="col-md-5">
-                    <input type="tel" id="phone" name="phone" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" class="form-control form-control-line" required value="<?php echo $row->phone ?>">
+                    <input type="tel" id="phone" name="phone" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" class="form-control form-control-line" readonly value="<?php echo $row->phone ?>">
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -85,7 +85,7 @@ if(!empty($user_info)) {
                     <label style="padding-top: 10px;">Payment Charge</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="number" id="payment_charge" name="payment_charge" class="form-control form-control-line" min="0" required value="<?php echo $row->payment_charge ?>">
+                    <input type="number" id="payment_charge" name="payment_charge" class="form-control form-control-line" min="0" readonly value="<?php echo $row->payment_charge ?>">
                 </div>
                 <div class="col-md-4"><label style="padding-top: 5px;">%</label></div>
             </div>

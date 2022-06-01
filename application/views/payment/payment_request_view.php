@@ -35,17 +35,26 @@ if($payment_pending == 0) {
             <div class="col-md-2">
                 <input type="number" id="request_amount" name="request_amount" autocomplete="off" class="form-control margin-bottom-05 text-center" min="10" max="<?php echo $balance; ?>" value="10" step="1" required>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <label style="padding-top: 10px;">Charge</label>
             </div>
-            <div class="col-md-1">
-                <input type="text" id="charge_amount" name="charge_amount" class="form-control margin-bottom-05 text-center" value="1" required readonly>
+            <div class="col-md-2">
+                <input type="text" id="charge_amount" name="charge_amount" class="form-control margin-bottom-05 text-center" required readonly>
             </div>
             <div class="col-md-2 text-right">
                 <label style="padding-top: 10px;">You Will Get</label>
             </div>
             <div class="col-md-2">
-                <input type="text" id="payment_amount" name="payment_amount" class="form-control margin-bottom-05 text-center" style="background-color: red;color: white;" value="1" required readonly>
+                <input type="text" id="payment_amount" name="payment_amount" class="form-control margin-bottom-05 text-center" style="background-color: red;color: white;" required readonly>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-2">
+                <label style="padding-top: 10px;">Request Method</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" id="request_remarks" name="request_remarks" class="form-control margin-bottom-05" placeholder="Requested Method (Bkash, Nogod, Bank Account No. etc)" maxlength="250" required>
             </div>
             <div class="col-md-2 text-center">
                 <button class="btn btn-success text-white mb-2" id="submit" name="submit" value="request">Request</button>

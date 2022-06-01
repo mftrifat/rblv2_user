@@ -195,6 +195,18 @@ class ModelCommon extends CI_Model {
         }
     }
 
+    function get_user_pending($id)
+    {
+        $this->db->select('pending_income as balance');
+        $this->db->from('tbl_user_balance');
+        $this->db->where("user_id", $id);
+        $query = $this->db->get();
+        $row = $query->row();
+        if ($query->num_rows() > 0) {
+            return $row->balance;
+        }
+    }
+
     function get_user_balance_cond($id, $cond)
     {
         if($cond == "income") {

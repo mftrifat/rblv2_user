@@ -31,6 +31,7 @@ class Payments extends CI_Controller {
                     $this->form_validation->set_rules('charge_amount','Payment Amount','trim|required');
                     $this->form_validation->set_rules('payment_amount','Payment Amount','trim|required');
                     $this->form_validation->set_rules('payment_charge','Payment Charge','trim|required');
+                    $this->form_validation->set_rules('request_remarks','Request Method','required');
                  
                     if($this->form_validation->run()==FALSE)
                     {
@@ -50,6 +51,7 @@ class Payments extends CI_Controller {
                         $data['commision_user_id'] = $this->ModelCommon->single_result('tbl_users', 'parent_user_id', 'user_id', $this->session->userdata('user_id'));
                         $data['request_date'] = date("Y-m-d H:i:s");
                         $data['user_id'] = $this->session->userdata('user_id');
+                        $data['request_remarks'] = $this->input->post('request_remarks');
 
                         if ($this->ModelPayments->request_new_payment($data)) {
                             $this->ModelPayments->request_new_payment_post($data['user_id']);

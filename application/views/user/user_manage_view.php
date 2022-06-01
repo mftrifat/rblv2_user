@@ -32,7 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <th scope="col">User Full Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">User Type</th>
-                    <th scope="col">Create Date</th>
+                    <th scope="col">Balance Amount</th>
+                    <th scope="col">Withdeawn Amount</th>
                     <th scope="col">Status</th>
                     <th scope="col">Edit Profile</th>
                 </tr>

@@ -53,12 +53,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <ul class="row list-style-none text-center m-t-30">
-                    <li class="col-6">
+                    <li class="col-4">
                         <h4 class="text-info"><i class="mdi mdi-cash"></i></h4>
                         <h3 class="m-t-5 counter_money"><?php echo $this->ModelCommon->get_user_balance_cond($this->session->userdata('user_id'), "income"); ?></h3>
                         <span class="d-block text-muted">Total Income</span>
                     </li>
-                    <li class="col-6">
+                    <li class="col-4">
+                        <h4 class="text-info"><i class="mdi mdi-cash"></i></h4>
+                        <h3 class="m-t-5 counter_money"><?php echo $this->ModelCommon->get_user_pending($this->session->userdata('user_id')); ?></h3>
+                        <span class="d-block text-muted">Pending Income</span>
+                    </li>
+                    <li class="col-4">
                         <h4 class="text-info"><i class="mdi mdi-cash-multiple"></i></h4>
                         <h3 class="m-t-5 counter_money"><?php echo $this->ModelCommon->get_user_balance_cond($this->session->userdata('user_id'), "cashout"); ?></h3>
                         <span class="d-block text-muted">Total Cashout</span>
