@@ -105,4 +105,28 @@ class Payments extends CI_Controller {
         }
         $this->template->load('default_layout', 'contents' , 'payment/payment_status_view', $data);
     }
+
+    function transaction_summary() {
+        header("Access-Control-Allow-Origin: *");
+        $data = array();
+        if ($this->session->userdata('logged_in_user')) {
+            $this->template->set('title', 'Transaction Summary');
+            $this->template->set('nav', '_layouts/nav/navigation_layout_user');
+            $this->template->set('page_script', 'payment/transaction_summary_view_script');
+            $this->template->set('page_style', 'payment/transaction_summary_view_style');
+
+            if($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
+                $data['transaction_summary'] = $this->ModelPayments->get_user_transaction_summary($this->session->userdata('user_id'));
+            } else {
+                echo "Unauthorized Action!";
+                redirect('logout');
+            }
+        } else {
+            redirect('Home');
+        }
+        $this->template->load('default_layout', 'contents' , 'payment/transaction_summary_view', $data);
+    }
 }

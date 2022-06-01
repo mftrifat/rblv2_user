@@ -73,6 +73,29 @@ class Accounts extends CI_Controller {
         $this->template->load('default_layout', 'contents' , 'account/add_account_single_view', $data);
     }
 
+    function price_list() {
+        header("Access-Control-Allow-Origin: *");
+        $data = array();
+        if ($this->session->userdata('logged_in_user')) {
+            $this->template->set('title', 'Price List');
+            $this->template->set('nav', '_layouts/nav/navigation_layout_user');
+            $this->template->set('page_script', 'account/account_price_list_view_script');
+            $this->template->set('page_style', 'account/account_price_list_view_style');
+
+            if ($this->session->userdata('user_access_level') < 100) {
+                if($this->session->userdata('user_access_level') == 11) {
+                    $this->template->set('nav', '_layouts/nav/navigation_layout_admin');
+                }
+                $data['all_price_list'] = $this->ModelAccounts->get_price_list();
+            } else {
+                redirect('logout');
+            }
+        } else {
+            redirect('Home');
+        }
+        $this->template->load('default_layout', 'contents' , 'account/account_price_list_view', $data);
+    }
+
     function add_account_batch() {
         header("Access-Control-Allow-Origin: *");
         $data = array();

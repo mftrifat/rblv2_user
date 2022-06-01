@@ -79,12 +79,14 @@ $route['unlock_user'] = 'Users/unlock_user';
 $route['add_account_single'] = 'Accounts/add_account_single';
 // $route['add_account_batch'] = 'Accounts/add_account_batch';
 $route['edit_account'] = 'Accounts/edit_account';
+$route['price_list'] = 'Accounts/price_list';
 
 $route['uploaded_accounts'] = 'Status/uploaded_accounts';
 $route['rejected_accounts'] = 'Status/rejected_accounts';
 
 $route['payment_request'] = 'Payments/payment_request';
 $route['payment_status'] = 'Payments/payment_status';
+$route['transaction_summary'] = 'Payments/transaction_summary';
 
 
 $route['ajax-get-sub-category/(:any)'] = 'BasicController/ajaxRequestGetSubCategory/$1';

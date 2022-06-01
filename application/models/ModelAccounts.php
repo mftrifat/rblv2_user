@@ -122,6 +122,33 @@ Class ModelAccounts extends CI_Model {
         $this->db->trans_complete();
         return ($this->db->trans_status() === FALSE) ? false : true;
     }
+
+    function get_price_list()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_category');
+        $this->db->where("status", 1);
+        $this->db->order_by('main_category_id', 'ASC');
+        $this->db->order_by('id', 'ASC');
+        $query=$this->db->get();
+        $result=$query->result();
+        return $result;
+    }
+
+    function get_custom_rate_user($id, $cat)
+    {
+        $this->db->select('rate');
+        $this->db->from('tbl_user_custom_rate');
+        $this->db->where("status", 1);
+        $this->db->where("user_id", $id);
+        $this->db->where("sub_category_id", $cat);
+        $query=$this->db->get();
+        $row = $query->row();
+
+        if ($query->num_rows() > 0) {
+            return $row->rate;
+        }
+    }
 }
 
 ?>

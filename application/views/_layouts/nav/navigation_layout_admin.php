@@ -144,6 +144,12 @@
                                 <span class="hide-menu">Batch Entry</span>
                             </a>
                         </li> -->
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url();?>price_list" class="sidebar-link waves-effect waves-dark">
+                                <i class="m-r-10 mdi mdi-cash-usd"></i>
+                                <span class="hide-menu">Price List</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -186,6 +192,12 @@
                             <a href="<?php echo base_url();?>payment_status" class="sidebar-link waves-effect waves-dark">
                                 <i class="m-r-10 mdi mdi-cash"></i>
                                 <span class="hide-menu">Payment Status</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url();?>transaction_summary" class="sidebar-link waves-effect waves-dark">
+                                <i class="m-r-10 mdi mdi-cash"></i>
+                                <span class="hide-menu">Transaction Summary</span>
                             </a>
                         </li>
                     </ul>
