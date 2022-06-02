@@ -45,6 +45,44 @@ Class ModelPayments extends CI_Model {
         $result = $query_result->result();
         return $result;
     }
+
+    function total_account_income($id)
+    {
+        $this->db->select('sum(total_amount) as total');
+        $this->db->from('tbl_transaction_history');
+        $this->db->where("transaction_type", "Accepted Accounts");
+        $this->db->where("user_id", $id);
+        $query=$this->db->get();
+        $row = $query->row();
+        if ($query->num_rows() > 0) {
+            return round($row->total,2);
+        }
+    }
+
+    function total_commission_income($id)
+    {
+        $this->db->select('sum( total_amount) as total');
+        $this->db->from('tbl_transaction_history');
+        $this->db->where("transaction_type", 'Commission');
+        $query=$this->db->get();
+        $row = $query->row();
+        if ($query->num_rows() > 0) {
+            return $row->total;
+        }
+    }
+
+    function total_cashout($id)
+    {
+        $this->db->select('sum(user_cashout) as total');
+        $this->db->from('tbl_user_balance');
+        $this->db->where("user_id", $id);
+        $query=$this->db->get();
+        $row = $query->row();
+        if ($query->num_rows() > 0) {
+            return $row->total;
+        }
+    }
+
 }
 
 ?>

@@ -2,6 +2,70 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
+<?php 
+if($this->session->userdata('user_access_level') == 11){    
+    $account_income = $this->ModelPayments->total_account_income($this->session->userdata('user_id'));
+    if(empty($account_income)) {
+        $account_income = 0;
+    }
+    $commision_income = $this->ModelPayments->total_commission_income($this->session->userdata('user_id'));
+    $total_income = $account_income+$commision_income;
+    $total_cashout = $this->ModelPayments->total_cashout($this->session->userdata('user_id'));
+    $current_balance = $total_income-$total_cashout;
+?>
+<div>
+    <div class="table-responsive" id="view_table">
+        <table class="display table table-bordered table-striped" style="width: 98% !important;">            
+            <thead>
+                <tr class="text-center" id="table_header">
+                    <th scope="col">Account Income</th>
+                    <th scope="col">Total Commission</th>
+                    <th scope="col">Total Income</th>
+                    <th scope="col">Total Cashout</th>
+                    <th scope="col">Current Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="col" class="text-center"><?php echo $account_income; ?></td>
+                    <td scope="col" class="text-center"><?php echo $commision_income; ?></td>
+                    <td scope="col" class="text-center"><?php echo $total_income; ?></td>
+                    <td scope="col" class="text-center"><?php echo $total_cashout; ?></td>
+                    <td scope="col" class="text-center"><?php echo $current_balance; ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<?php } else {    
+    $total_income = $this->ModelPayments->total_account_income($this->session->userdata('user_id'));
+    $total_cashout = $this->ModelPayments->total_cashout($this->session->userdata('user_id'));
+    $current_balance = $total_income-$total_cashout;
+?>
+<div>
+    <div class="table-responsive" id="view_table">
+        <table class="display table table-bordered table-striped" style="width: 98% !important;">            
+            <thead>
+                <tr class="text-center" id="table_header">
+                    <th scope="col">Total Income</th>
+                    <th scope="col">Total Cashout</th>
+                    <th scope="col">Current Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="col" class="text-center"><?php echo $total_income; ?></td>
+                    <td scope="col" class="text-center"><?php echo $total_cashout; ?></td>
+                    <td scope="col" class="text-center"><?php echo $current_balance; ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<?php } ?>
+
 <?php if(!empty($transaction_summary)){ ?>
 <div>
     <div class="table-responsive" id="view_table">
