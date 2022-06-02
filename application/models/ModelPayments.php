@@ -67,7 +67,7 @@ Class ModelPayments extends CI_Model {
         $query=$this->db->get();
         $row = $query->row();
         if ($query->num_rows() > 0) {
-            return $row->total;
+            return round($row->total,2);
         }
     }
 
@@ -79,7 +79,7 @@ Class ModelPayments extends CI_Model {
         $query=$this->db->get();
         $row = $query->row();
         if ($query->num_rows() > 0) {
-            return $row->total;
+            return round($row->total,2);
         }
     }
 
